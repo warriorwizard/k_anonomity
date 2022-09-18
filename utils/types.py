@@ -52,6 +52,7 @@ class ClassifierModel(Enum):
     SVM = 'svm'
     RF = 'rf'
     KNN = 'knn'
+    GNB = 'gnb'
 
     def __str__(self):
         return self.value

@@ -12,10 +12,10 @@ from algorithms import read_tree
 
 methods = ['mondrian', 'classic_mondrian', 'topdown'] #['cluster', 'datafly']
 dataset = ['adult', 'cahousing']#, 'cmc', 'mgm', 'informs']  # italia
-k_array = [i for i in range(10, 40, 10)]
+k_array = [i for i in range(10, 30, 10)]
 
 metrics = ['ncp', 'cav', 'dm']
-ml_metrics = ['knn', 'svm', 'rf']
+ml_metrics = ['knn', 'svm', 'rf', 'gnb'] 
 lcolors = ['orange', 'deepskyblue', 'limegreen', 'magenta']
 
 metric_names = [
@@ -26,7 +26,8 @@ metric_names = [
 ml_metric_names = [
     'KNN',
     'SVMs',
-    'RFs'
+    'RFs',
+    'GNB'
 ]
 
 def sub_plot(result, dataset, methods, metrics, label_x, label_y, figname):

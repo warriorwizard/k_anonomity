@@ -8,6 +8,28 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, f1_score
 from algorithms import read_tree
 import numpy as np
+from sklearn.naive_bayes import GaussianNB
+
+
+class GNB:
+    def __init__(self):
+        self.model = GaussianNB()
+        
+    def fit(self, inputs, targets):
+        self.model = self.model.fit(inputs, targets)
+
+    def eval(self, inputs, targets, class_names=[]):
+        if len(class_names) == 0:
+            class_names = None
+        preds = self.model.predict(inputs)
+        return f1_score(targets, preds, labels=np.unique(preds), average='weighted')
+        # return classification_report(targets, preds, target_names=class_names, output_dict=True)
+
+    def save_model(self, path):
+        pickle.dump(self.model, open(path, 'wb'))
+
+    def load_model(self, path):
+        self.model = pickle.load(open(path, 'rb'))
 
 class KNN:
     """

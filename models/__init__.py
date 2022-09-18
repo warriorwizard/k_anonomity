@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from .classifiers import (
-    KNN, SVM, RFs, one_hot_encoding, 
+    KNN, SVM, RFs,GNB, one_hot_encoding, 
     replace_generalization, embed_target)
 from utils.types import ClassifierModel
 
@@ -12,6 +12,8 @@ def get_classifier(name, num_classes=None):
         return SVM()
     if name == ClassifierModel.RF:
         return RFs()
+    if name == ClassifierModel.GNB:
+        return GNB()
 
 def classifier_evaluation(
     classifier_name,
